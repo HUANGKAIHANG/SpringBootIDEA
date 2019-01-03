@@ -1,0 +1,23 @@
+1.5.18
+Spring Boot的基础结构共三个文件：
+src/main/java 程序开发及主程序入口
+src/main/resources 配置文件
+src/test/java 测试程序
+
+约定的目录结构：
+root package结构：com.example.myproject
+com
+    +-example
+        +-myproject
+            +-Application.java （根目录下，主要做一些框架配置）
+            |
+            +- domain
+            |   +- Customer.java （实体Entity）
+            |   +- CustomerRepository.java （数据访问层）
+            |
+            +- service （业务类代码）
+            |   +- CustonerService.java
+            |
+            +- controller （页面访问控制）
+            |   +- CustomerController.java
+            |
