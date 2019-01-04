@@ -32,3 +32,5 @@ SpringBoot默认使用Logback作为日志记录工具。需要配置的话，直
 数据库操作。底层domain两个类，一个实体类，一个持久化操作类。当使用jpa时，注意JDK版本。
 当找不到javax.xml.bind。JAXBException时，因为JDK版本过高，从JDK9开始，此类已被移出J2SE。
 需要手动处理此API依赖，JDK6,7,8没有这个问题。不过这个问题只影响单元测试，项目依旧能启动。
+
+模板引擎
