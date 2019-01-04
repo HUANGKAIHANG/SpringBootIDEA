@@ -8,6 +8,6 @@ public class HelloWorldController {
 
     @RequestMapping("/hello2")
     public String index(){
-        return "Hello World in IntelliJ IDEA";
+        return "spring boot project in IDEA -- hkh";
     }
 }

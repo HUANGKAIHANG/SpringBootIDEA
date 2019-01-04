@@ -21,3 +21,14 @@ com
             +- controller （页面访问控制）
             |   +- CustomerController.java
             |
+
+filters用于调用日志、排除有XSS威胁的字符、执行权限验证等等。
+Spring Boot 自定义Filter步骤：1.实现Filter接口实现Filter方法2.添加@Configuration注解，将自定义Filter加入过滤链。
+
+默认配置文件 application.properties 可直接通过注解配置注入值。
+
+SpringBoot默认使用Logback作为日志记录工具。需要配置的话，直接在默认配置文件配置。
+
+数据库操作。底层domain两个类，一个实体类，一个持久化操作类。当使用jpa时，注意JDK版本。
+当找不到javax.xml.bind。JAXBException时，因为JDK版本过高，从JDK9开始，此类已被移出J2SE。
+需要手动处理此API依赖，JDK6,7,8没有这个问题。不过这个问题只影响单元测试，项目依旧能启动。
