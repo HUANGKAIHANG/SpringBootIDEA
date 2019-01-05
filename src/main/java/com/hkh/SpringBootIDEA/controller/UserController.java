@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
+    private final UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @RequestMapping("/usersize")
-    public String userSize(){
+    public String userSize() {
         return String.valueOf(userRepository.findAll().size());
     }
 }

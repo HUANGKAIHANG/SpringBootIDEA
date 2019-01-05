@@ -1,10 +1,11 @@
-1.5.18
-Spring Boot的基础结构共三个文件：
+ver. 1.5.18
+一、基础认识**************************************************
+Spring Boot的【基础结构】共三个文件：
 src/main/java 程序开发及主程序入口
 src/main/resources 配置文件
 src/test/java 测试程序
 
-约定的目录结构：
+约定的【目录结构】：
 root package结构：com.example.myproject
 com
     +-example
@@ -22,15 +23,26 @@ com
             |   +- CustomerController.java
             |
 
-filters用于调用日志、排除有XSS威胁的字符、执行权限验证等等。
-Spring Boot 自定义Filter步骤：1.实现Filter接口实现Filter方法2.添加@Configuration注解，将自定义Filter加入过滤链。
+【重点】：引入web模块依赖，编写controller，编写单元测试，启动主程序
+此外：热启动配置，可能会遇到点麻烦
+************************************************************
+二、web综合开发常用技术**********************************************************************
+【json接口开发】使用@RestController
 
-默认配置文件 application.properties 可直接通过注解配置注入值。
+【filters】用于调用日志、排除有XSS威胁的字符、执行权限验证等等
+Spring Boot 自定义Filter步骤：
+1.实现Filter接口实现Filter方法；2.添加@Configuration注解，将自定义Filter加入过滤链
 
-SpringBoot默认使用Logback作为日志记录工具。需要配置的话，直接在默认配置文件配置。
+【默认配置文件】application.properties 可直接通过注解配置在代码中获得值
 
-数据库操作。底层domain两个类，一个实体类，一个持久化操作类。当使用jpa时，注意JDK版本。
-当找不到javax.xml.bind。JAXBException时，因为JDK版本过高，从JDK9开始，此类已被移出J2SE。
-需要手动处理此API依赖，JDK6,7,8没有这个问题。不过这个问题只影响单元测试，项目依旧能启动。
+【日志】SpringBoot默认使用Logback作为日志记录工具。需要自定义配置的话，直接在默认配置文件配置
 
-模板引擎
+【数据库操作】底层domain两个类，一个实体类，一个持久化操作类。当使用jpa时，注意JDK版本
+当找不到javax.xml.bind。JAXBException时，因为JDK版本过高，从JDK9开始，此类已被移出J2SE
+需要手动处理此API依赖，JDK6,7,8没有这个问题。不过这个问题只影响单元测试，项目依旧能启动
+
+【模板引擎】thymeleaf。引入依赖后按语法使用
+
+【WebJars】前端的maven。可以以jar包的形式来使用前端各种框架和组件。有类似maven中央仓库的网站
+******************************************************************************************
+三、SpringBoot中的Redis**********
