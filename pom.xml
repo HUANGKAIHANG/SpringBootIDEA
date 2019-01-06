@@ -61,6 +61,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
+		<!--<dependency> &lt;!&ndash; Redis 内存数据存储 &ndash;&gt;-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-redis</artifactId>-->
+			<!--<version>1.4.6.RELEASE</version>-->
+		<!--</dependency>-->
+
+		<dependency> <!-- Redis 内存数据存储 -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
