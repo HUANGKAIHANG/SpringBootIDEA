@@ -46,9 +46,14 @@ Spring Boot 自定义Filter步骤：
 【WebJars】前端的maven。可以以jar包的形式来使用前端各种框架和组件。有类似maven中央仓库的网站
 ******************************************************************************************
 三、SpringBoot中的Redis**********
-下载安装Redis，启动服务。需要注意依赖对象。不同SpringBoot应当依赖不同的jar
+下载安装【Redis】，启动服务。需要注意依赖对象。不同SpringBoot应当依赖不同的jar
 1.5.18版本的SpringBoot引用spring-boot-starter-redis，同时需要指明版本，如1.4.6.RELEASE
 2.0之后的版本引用spring-boot-starter-data-redis(理论上1.4版本之后都需要用新依赖)
 在默认配置文件中对Redis进行配置，并添加高速缓存的配置类RedisConfig.java即可使用，在测试类中测试手动使用
 1.5.18的高速缓存配置类编写三个Bean KeyGenerator CacheManager RedisTemplate
 【自动生成缓存】使用@Cacheable。验证方法就是看hibernate有没有输出sql语句
+
+【Session】的管理，共享（分布式系统中需要）,使用Redis
+1.引入依赖；2.编写Session配置类SessionConfig.java，设定session失效时间
+多台设备共享session。在其他边按同样的步骤配置一次，启动后自动共享？
+
