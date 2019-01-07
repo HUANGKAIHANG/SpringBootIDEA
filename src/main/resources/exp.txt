@@ -1,5 +1,5 @@
 ver. 1.5.18
-一、基础认识**************************************************
+一、基础认识************************************************************
 Spring Boot的【基础结构】共三个文件：
 src/main/java 程序开发及主程序入口
 src/main/resources 配置文件
@@ -25,7 +25,7 @@ com
 
 【重点】：引入web模块依赖，编写controller，编写单元测试，启动主程序
 此外：热启动配置，可能会遇到点麻烦
-************************************************************
+**********************************************************************
 二、web综合开发常用技术**********************************************************************
 【json接口开发】使用@RestController
 
@@ -45,7 +45,7 @@ Spring Boot 自定义Filter步骤：
 
 【WebJars】前端的maven。可以以jar包的形式来使用前端各种框架和组件。有类似maven中央仓库的网站
 ******************************************************************************************
-三、SpringBoot中的Redis**********
+三、SpringBoot中的Redis********************************************************************************
 下载安装【Redis】，启动服务。需要注意依赖对象。不同SpringBoot应当依赖不同的jar
 1.5.18版本的SpringBoot引用spring-boot-starter-redis，同时需要指明版本，如1.4.6.RELEASE
 2.0之后的版本引用spring-boot-starter-data-redis(理论上1.4版本之后都需要用新依赖)
@@ -56,4 +56,21 @@ Spring Boot 自定义Filter步骤：
 【Session】的管理，共享（分布式系统中需要）,使用Redis
 1.引入依赖；2.编写Session配置类SessionConfig.java，设定session失效时间
 多台设备共享session。在其他边按同样的步骤配置一次，启动后自动共享？
-
+****************************************************************************************************
+四、thymeleaf**********
+类FreeMarker【模板引擎】，完全替代JSP
+【标准表达式语法】支持常用的语法有：字面，文本操作，算术运算，布尔操作，比较和等价，条件运算符
+1.变量表达式：${session.user.name} <span th:text="${book.author.name}"> <li th:each="book:${books}">
+2.选择或星号表达式: *{customer.name} (会在父标签的值上表达)
+如：父标签<div th:object="${session.user}"> 子标签<p>Name:<span th:text="*{firstName}"></span></p>
+等价于： <p>Name:<span th:text="${session.user.firstName}"></span></p>
+3.文字国际化表达式: #{main.title} #{message.entrycreated(${entryId})}
+4.URL表达式: @{/order/list} @{/order/details(id=${orderId})} @{../documents/report}
+【th标签】常用场景
+<th:text="${xxx}"> 赋值，字符串拼接
+<th:if="${xxx=='xxx'}"> <th:unless=${***!=***}> 条件判断
+<th:each="x:${xs}"> for循环
+<th:href="@{...}"> URL
+<th:inline="text/javascript/none"> 内联js
+<th:frament=".."> <th:include="..::.."> <th:replace="..::.."> 布局
+内嵌变量 ${#dates.createNow()} 实例一个当前时间（通过#直接调用内嵌Java各种工具类）

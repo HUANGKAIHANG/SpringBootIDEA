@@ -28,6 +28,9 @@ public class ThymeleafController {
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
         String formattedDate = dateFormat.format(date);
         model.addAttribute("currentTime", formattedDate);
+        model.addAttribute("name","huangkaihang");
+        model.addAttribute("baidu","yes");
+        model.addAttribute("google",null);
 
         return "hello";
     }

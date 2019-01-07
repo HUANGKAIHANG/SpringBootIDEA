@@ -6,7 +6,10 @@
 </head>
 <body>
 <h1>Spring Boot Thymeleaf.</h1>
-<p th:text="${greeting}"></p>
-<p th:text="${currentTime}"></p>
+<p th:text="${greeting}">greeting</p>
+<p th:text="${currentTime}">currentTime</p>
+<span th:text="|Welcome to our application, ${name}|">span</span>
+<a th:if="${baidu=='yes'}" th:href="@{/hello2}">hello2</a>
+<a th:unless="${google!=null}" th:href="@{uid}">uid</a>
 </body>
 </html>

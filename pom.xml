@@ -35,11 +35,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!--<dependency> &lt;!&ndash; 支持热配置热启动热部署的模块 &ndash;&gt;
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
-		</dependency>-->
+		<!--<dependency> &lt;!&ndash;支持热配置热启动热部署的模块 &ndash;&gt;-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-devtools</artifactId>-->
+			<!--<optional>true</optional>-->
+		<!--</dependency>-->
 
 		<dependency> <!-- spring data jpa是利用Hibernate生成各种自动化的sql -->
 			<groupId>org.springframework.boot</groupId>
@@ -87,6 +87,7 @@
 				<!-- 支持热配置热启动热部署的模块 -->
 				<configuration>
 					<fork>true</fork>
+					<addResources>true</addResources>
 				</configuration>
 			</plugin>
 		</plugins>

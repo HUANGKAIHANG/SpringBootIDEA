@@ -5,13 +5,16 @@
     <title>ALL USERS</title>
 </head>
 <body>
-<tr th:each="user:${allUsers}">
-    <td th:text="${user.id}"></td>
-    <td th:text="${user.userName}"></td>
-    <td th:text="${user.password}"></td>
-    <td th:text="${user.nickName}"></td>
-    <td th:text="${user.email}"></td>
-    <td th:text="${user.regTime}"></td>
+<tr th:each="user,iterStat:${allUsers}">
+    <th scope="row" th:text="${user.id}">1</th>
+    <td th:text="${user.id}">id2</td>
+    <td th:text="${user.userName}">username</td>
+    <td th:text="${user.password}">password</td>
+    <td th:text="${user.nickName}">nickname</td>
+    <td th:text="${user.email}">email</td>
+    <td th:text="${user.regTime}">regtime</td>
+    <td th:text="${iterStat.index}">index</td>
+    <br/>
 </tr>
 </body>
 </html>
