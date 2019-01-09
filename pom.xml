@@ -35,11 +35,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!--<dependency> &lt;!&ndash;支持热配置热启动热部署的模块 &ndash;&gt;-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-devtools</artifactId>-->
-			<!--<optional>true</optional>-->
-		<!--</dependency>-->
+		<dependency> <!--支持热配置热启动热部署的模块 -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
 
 		<dependency> <!-- spring data jpa是利用Hibernate生成各种自动化的sql -->
 			<groupId>org.springframework.boot</groupId>
@@ -51,11 +51,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
-		<dependency> <!-- JDK8之后的版本可能需要手动引入 只影响单元测试-->
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.3.0</version>
-		</dependency>
+		<!--<dependency> &lt;!&ndash; JDK8之后的版本可能需要手动引入 只影响单元测试&ndash;&gt;-->
+			<!--<groupId>javax.xml.bind</groupId>-->
+			<!--<artifactId>jaxb-api</artifactId>-->
+			<!--<version>2.3.0</version>-->
+		<!--</dependency>-->
 
 		<dependency> <!-- thymeleaf模板引擎 -->
 			<groupId>org.springframework.boot</groupId>
@@ -87,7 +87,6 @@
 				<!-- 支持热配置热启动热部署的模块 -->
 				<configuration>
 					<fork>true</fork>
-					<addResources>true</addResources>
 				</configuration>
 			</plugin>
 		</plugins>

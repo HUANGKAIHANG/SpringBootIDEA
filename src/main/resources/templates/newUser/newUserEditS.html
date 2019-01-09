@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>简单版编辑</title>
+</head>
+<body>
+<br/>
+<h1>修改</h1>
+<br/><br/>
+<form th:action="@{/edit}" th:object="${newUser}" method="post">
+    <input type="hidden" name="id" th:value="*{id}"/>
+    <label>用户名</label>
+    <input type="text" name="userName" th:value="*{userName}"/>
+    <br/>
+    <label>密码</label>
+    <input type="password" name="password" th:value="*{password}"/>
+    <br/>
+    <label>年龄</label>
+    <input type="text" name="age" th:value="*{age}"/>
+    <br/>
+    <input type="submit" value="确定"/>
+    <a th:href="@{/list}">返回</a>
+</form>
+</body>
+</html>

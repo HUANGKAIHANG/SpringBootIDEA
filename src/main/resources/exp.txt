@@ -34,6 +34,11 @@ Spring Boot 自定义Filter步骤：
 1.实现Filter接口实现Filter方法；2.添加@Configuration注解，将自定义Filter加入过滤链
 
 【默认配置文件】application.properties 可直接通过注解配置在代码中获得值
+数据库配置，四个值路径url，用户名username，密码password，jdbc驱动类driver-class-name
+spring.jpa.properties.hibernate.hbm2ddl.auto=update 最常用的值是update
+作用：自动创建、更新、验证数据库表结构
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+作用：指定生成表名的存储引擎为InnoDB
 
 【日志】SpringBoot默认使用Logback作为日志记录工具。需要自定义配置的话，直接在默认配置文件配置
 
@@ -66,6 +71,7 @@ Spring Boot 自定义Filter步骤：
 等价于： <p>Name:<span th:text="${session.user.firstName}"></span></p>
 3.文字国际化表达式: #{main.title} #{message.entrycreated(${entryId})}
 4.URL表达式: @{/order/list} @{/order/details(id=${orderId})} @{../documents/report}
+
 【th标签】常用场景
 <th:text="${xxx}"> 赋值，字符串拼接
 <th:if="${xxx=='xxx'}"> <th:unless=${***!=***}> 条件判断
@@ -73,6 +79,7 @@ Spring Boot 自定义Filter步骤：
 <th:href="@{...}"> URL
 <th:inline="text/javascript/none"> 内联js
 <th:frament=".."> <th:include="..::.."> <th:replace="..::.."> 布局
+
 【内嵌变量】 ${#dates.createNow()} 实例一个当前时间（通过#直接调用内嵌Java各种工具类）
 ****************************************************************************************************
 五、spring data jpa********************************************************************************
@@ -87,3 +94,19 @@ JPA是规范不是框架，而Spring Data JPA是Spring基于ORM框架、JPA规�
 不同数据源使用不同的实体就可以了，也可以通过对不同包路径进行声明，如A包下用mysqlB包下用mongodb
 其它注意点，不需要和数据库映射的属性加上@Transient
 ****************************************************************************************************
+六、spring boot + jpa + thymeleaf = 一个简单的增删改查模块********************
+需要打包构建war及部署在服务器上时,需要添加启动类对【Servlet】的支持
+启动类需要继承SpringBootServletInitializer，重写configure方法：
+return application.sources(SpringBootIdeaApplication.class);
+
+【热配置】spring.thymeleaf.cache=false 可以关闭thymeleaf缓存
+
+【静态文件】约定在resources下，static文件夹放css，js和图片等
+templates文件夹放页面模板
+
+【注入两种注解】时，@Autowired按类型注入，@Resource按名称注解
+命名规范的情况下，两者通用
+
+【控制层返回】return "user/userEdit"; 指的是到resources目录下找相关文件
+return "redirect:/list"; 指的是转发到对应的controller方法
+**********************************************************************
