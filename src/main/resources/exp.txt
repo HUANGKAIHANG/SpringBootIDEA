@@ -110,10 +110,19 @@ templates文件夹放页面模板
 【控制层返回】return "user/userEdit"; 指的是到resources目录下找相关文件
 return "redirect:/list"; 指的是转发到对应的controller方法
 **********************************************************************
-七、spring boot + mybatis**********
+七、spring boot + mybatis************************************************************
 两种开发方法，1.纯注解形式 2.配置文件形式 两种方式都要先引入依赖
 【纯注解】
 配置实体类位置mybatis.type-aliases-package=com.hkh.SpringBootIDEA.domain.mybatis
 配置启动类@MapperScan("com.hkh.SpringBootIDEA.mapper")
 开发Mapper接口，主要用到五个注解@Select，@Result(s)，@Insert，@Update，@Delete
 取值赋值时有#号取法和$号取法，#号是预编译的安全的，$号用在动态sql。能用#号就用#号
+【XML】系统会自动根据方法名在映射文件中找对应的sql
+配置基础配置文件和实体类映射文件的位置
+mybatis.config-location=classpath:mybatis/mybatis-config.xml
+mybatis.mapper-locations=classpath:mybatis/mapper/*.xml
+基础配置文件，配置变量类型和一些mybatis的基础设置
+映射文件相当于把注解方式中的mapper类搬到xml文件中，mapper类只剩下简单的接口声明
+
+【对比】：注解版简单快速，微服务适用，没有太多多表查询需求时；XML版可以灵活动态生成sql
+********************************************************************************
