@@ -110,3 +110,10 @@ templates文件夹放页面模板
 【控制层返回】return "user/userEdit"; 指的是到resources目录下找相关文件
 return "redirect:/list"; 指的是转发到对应的controller方法
 **********************************************************************
+七、spring boot + mybatis**********
+两种开发方法，1.纯注解形式 2.配置文件形式 两种方式都要先引入依赖
+【纯注解】
+配置实体类位置mybatis.type-aliases-package=com.hkh.SpringBootIDEA.domain.mybatis
+配置启动类@MapperScan("com.hkh.SpringBootIDEA.mapper")
+开发Mapper接口，主要用到五个注解@Select，@Result(s)，@Insert，@Update，@Delete
+取值赋值时有#号取法和$号取法，#号是预编译的安全的，$号用在动态sql。能用#号就用#号
