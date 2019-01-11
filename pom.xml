@@ -49,6 +49,7 @@
 		<dependency> <!-- mysql驱动 -->
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!--<dependency> &lt;!&ndash; JDK8之后的版本可能需要手动引入 只影响单元测试&ndash;&gt;-->
@@ -82,6 +83,18 @@
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.1.1</version>
+		</dependency>
+
+		<dependency> <!-- Shiro -->
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
+		<dependency> <!-- 配合LEGACYHTML5使用可避免模板对html的检查过严 -->
+			<groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+			<version>1.9.22</version>
 		</dependency>
 	</dependencies>
 

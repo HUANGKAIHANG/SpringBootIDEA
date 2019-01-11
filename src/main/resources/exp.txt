@@ -94,7 +94,7 @@ JPA是规范不是框架，而Spring Data JPA是Spring基于ORM框架、JPA规�
 不同数据源使用不同的实体就可以了，也可以通过对不同包路径进行声明，如A包下用mysqlB包下用mongodb
 其它注意点，不需要和数据库映射的属性加上@Transient
 ****************************************************************************************************
-六、spring boot + jpa + thymeleaf = 一个简单的增删改查模块********************
+六、spring boot+jpa+thymeleaf=一个简单的增删改查模块********************
 需要打包构建war及部署在服务器上时,需要添加启动类对【Servlet】的支持
 启动类需要继承SpringBootServletInitializer，重写configure方法：
 return application.sources(SpringBootIdeaApplication.class);
@@ -110,7 +110,7 @@ templates文件夹放页面模板
 【控制层返回】return "user/userEdit"; 指的是到resources目录下找相关文件
 return "redirect:/list"; 指的是转发到对应的controller方法
 **********************************************************************
-七、spring boot + mybatis************************************************************
+七、spring boot+mybatis************************************************************
 两种开发方法，1.纯注解形式 2.配置文件形式 两种方式都要先引入依赖
 【纯注解】
 配置实体类位置mybatis.type-aliases-package=com.hkh.SpringBootIDEA.domain.mybatis
@@ -126,3 +126,6 @@ mybatis.mapper-locations=classpath:mybatis/mapper/*.xml
 
 【对比】：注解版简单快速，微服务适用，没有太多多表查询需求时；XML版可以灵活动态生成sql
 ********************************************************************************
+八、spring boot+Shiro**********
+如果项目有另一个配置文件application.yml。会先加载yml配置文件
+所以properties配置文件对应更高的优先级，因为后加载
