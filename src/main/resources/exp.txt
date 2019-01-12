@@ -129,3 +129,4 @@ mybatis.mapper-locations=classpath:mybatis/mapper/*.xml
 八、spring boot+Shiro**********
 如果项目有另一个配置文件application.yml。会先加载yml配置文件
 所以properties配置文件对应更高的优先级，因为后加载
+什么时候需要实现Serializable

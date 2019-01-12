@@ -1,10 +1,11 @@
 package com.hkh.SpringBootIDEA.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class SysPermission { //先不实现序列化接口
+public class SysPermission implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;

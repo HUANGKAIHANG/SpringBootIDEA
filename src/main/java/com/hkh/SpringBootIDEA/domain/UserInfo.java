@@ -1,10 +1,11 @@
 package com.hkh.SpringBootIDEA.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class UserInfo { //先不实现序列化接口
+public class UserInfo implements Serializable {
     @Id
     @GeneratedValue
     private Integer uid;
