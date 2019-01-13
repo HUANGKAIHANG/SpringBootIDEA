@@ -39,6 +39,8 @@ spring.jpa.properties.hibernate.hbm2ddl.auto=update 最常用的值是update
 作用：自动创建、更新、验证数据库表结构
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
 作用：指定生成表名的存储引擎为InnoDB
+如果项目有另一个配置文件application.yml。会先加载yml配置文件
+所以properties配置文件对应更高的优先级，因为后加载
 
 【日志】SpringBoot默认使用Logback作为日志记录工具。需要自定义配置的话，直接在默认配置文件配置
 
@@ -126,7 +128,21 @@ mybatis.mapper-locations=classpath:mybatis/mapper/*.xml
 
 【对比】：注解版简单快速，微服务适用，没有太多多表查询需求时；XML版可以灵活动态生成sql
 ********************************************************************************
-八、spring boot+Shiro**********
-如果项目有另一个配置文件application.yml。会先加载yml配置文件
-所以properties配置文件对应更高的优先级，因为后加载
-什么时候需要实现Serializable
+八、spring boot+Shiro************************************************************
+【基础使用】【认证】+【授权】
+【认证】简单说就是账号密码对不对【授权】某个用户有没有执行某个操作的权限
+【准备】RBAC：基于角色的访问控制 用户——角色——权限 都是多对多的关系
+三者的具体关系数据可以存于数据库，程序中编写三个类时注意需要序列化
+【配置】ShiroConfig类，通过Filter来实现。配置各种URL的校验
+如anon指当前路径可以匿名访问，authc需要认证（登录）才可以访问
+至少需要两个类的支持，Realm和SecurityManager
+Realm：具体的认证授权信息获取与处理
+Realm.doGetAuthenticationInfo，登录认证实现方法
+Realm.doGetAuthorizationInfo，链接权限的实现
+SecurityManager：Shiro核心，管理所有对象
+HashedCredentialsMatcher：自定义的加密类，即密码密文怎么算
+AuthorizationAttributeSourceAdvisor：开启Shiro AOP注解支持
+SimpleMappingExceptionResolver：异常处理，比如出现越权操作如何跳转
+因为Shiro接管了登录认证，所以登录的控制器代码只需要处理Shiro认证未通过时给用户的提示信息
+其它的控制器代码可以使用@RequiresPermissions("***")来指明这个链接需要什么权限
+********************************************************************************
