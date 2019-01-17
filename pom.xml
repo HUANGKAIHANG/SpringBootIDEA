@@ -101,6 +101,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
+
+		<!--<dependency> &lt;!&ndash; 能通过注解形式生成必要的代码，如getset方法 &ndash;&gt;-->
+			<!--<groupId>org.projectlombok</groupId>-->
+			<!--<artifactId>lombok</artifactId>-->
+		<!--</dependency>-->
+
+		<!--<dependency> &lt;!&ndash; 自动化配置 &ndash;&gt;-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-autoconfigure</artifactId>-->
+			<!--<version>RELEASE</version>-->
+		<!--</dependency>-->
 	</dependencies>
 
 	<build>
